@@ -1,0 +1,128 @@
+---
+layout: default
+---
+
+<div>
+     <div class="section">
+          <h1 class="section-title section-title-profile">Hey, I'm Evan! 👋🏼</h1>
+          <div class="profile">
+               <img src="/assets/images/me.jpg" alt="Evan" class="profile-picture">
+               <p>
+                    I am a computer science Ph.D. student at
+                    <a href="https://csail.mit.edu" target="_blank" class="profile-link">MIT</a>.
+                    My research focuses on understanding
+                    what deep neural networks learn from large quantities of data: what concepts are encoded in
+                    their features, and how can we communicate the network's learned algorithm to humans?
+                    I am extremely fortunate to be advised by
+                    <a href="https://www.mit.edu/~jda" target="_blank" class="profile-link">Jacob Andreas</a>
+                    and to work closely with
+                    <a href="https://groups.csail.mit.edu/vision/torralbalab" target="_blank" class="profile-link">
+                         Antonio Torralba.
+                    </a>
+               </p>
+               <p>
+                    Before graduate school, I earned my B.S. in computer science and mathematics from the
+                    <a href="https://cs.wisc.edu" target="_blank" class="profile-link">University of
+                         Wisconsin-Madison</a>.
+                    There, I developed a natural language interface for the educational
+                    programming environment
+                    <a href="https://developers.google.com/blockly" target="_blank" class="profile-link">
+                         Blockly
+                    </a>
+                    and studied how to synthesize example programs for students using a noisy, hand-drawn
+                    sketch as a specification.
+               </p>
+               <p>
+                    I also worked for Google as a software engineer and contributed to
+                    <a href="https://chromium.org" target="_blank" class="profile-link">Chromium</a>.
+               </p>
+          </div>
+     </div>
+     <hr>
+     <div class="section">
+          <h1 class="section-title section-title-other">Projects</h1>
+          <div class="projects">
+               {%- for post in site.posts -%}
+               {%- if post.kind == "project" -%}
+               <div class="project-container">
+                    <div class="project-thumbnail-container">
+                         <img class="project-thumbnail" src="{{post.thumbnail}}" alt="{{post.thumbnail_alt}}">
+                         {%- if post.thumbnail_caption -%}
+                         <div class="project-thumbnail-caption">{{post.thumbnail_caption}}</div>
+                         {%- endif -%}
+                    </div>
+                    <div class="project-description-container">
+                         <div class="project-title">
+                              {%- if post.website -%}
+                              <a target="_blank" href="{{post.website}}">{{post.title}}</a>
+                              {%- else -%}
+                              {{post.title}}
+                              {%- endif -%}
+                         </div>
+                         {%- if post.authors -%}
+                         <div class="project-authors">
+                              <i>
+                                   {%- for author in post.authors -%}
+                                   {%- if author == "Evan Hernandez" -%}
+                                   <b>{{author}}</b>
+                                   {%- else -%}
+                                   {{author}}
+                                   {%- endif -%}
+                                   {% unless forloop.last %}, {% endunless %}
+                                   {%- endfor -%}
+                              </i>
+                         </div>
+                         {%- endif -%}
+                         <div class="project-content">
+                              {{post.content}}
+                         </div>
+                         <div class="project-links">
+                              {%- if post.paper -%}
+                              <span class="project-link-wrapper">
+                                   <a target="_blank" href="{{post.paper}}" class="project-link">[paper]</a>
+                              </span>
+                              {%- endif -%}
+                              {%- if post.code -%}
+                              <span class="project-link-wrapper">
+                                   <a target="_blank" href="{{post.code}}" class="project-link">[code]</a>
+                              </span>
+                              {%- endif -%}
+                         </div>
+                    </div>
+               </div>
+               {%- endif -%}
+               {%- endfor -%}
+          </div>
+     </div>
+     <hr>
+     <div class="section">
+          <h1 class="section-title section-title-other">Teaching</h1>
+          <div class="teaching-container">
+               {%- for post in site.posts -%}
+               {%- if post.kind == "teaching" -%}
+               <div>
+                    <div class="teaching-title">
+                         {%- if post.website -%}
+                         <a href="{{post.website}}" target="_blank">{{post.title}}</a>
+                         {%- else -%}
+                         {{post.title}}
+                         {%- endif -%}
+                    </div>
+                    <div class="teaching-subtitle">
+                         <span class="teaching-role">{{post.role}}</span>
+                         {%- for term in post.terms -%}
+                         {%- if term.website -%}
+                         <a href="{{term.website}}" target="_blank" class="teaching-term link">[{{term.when}}]</a>
+                         {%- else -%}
+                         <span class="teaching-term">[{{term.when}}]</span>
+                         {%- endif -%}
+                         {%- endfor -%}
+                    </div>
+                    <div>{{post.content}}</div>
+               </div>
+               {%- endif -%}
+               {%- endfor -%}
+          </div>
+     </div>
+</div>
+</div>
