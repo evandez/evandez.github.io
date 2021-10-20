@@ -60,6 +60,9 @@
 .project-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 25px;
     background: #EBEBEB;
     border-radius: 5px;
@@ -67,7 +70,6 @@
 }
 
 .project-thumbnail-container {
-    width: 200px;
     display: flex;
     flex-direction: column;
 }
@@ -86,7 +88,7 @@
 }
 
 .project-description-container {
-    width: 65%;
+    flex: 3;
 }
 
 .project-authors {
