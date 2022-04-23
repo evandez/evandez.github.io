@@ -5,7 +5,7 @@ title:  Low-Dimensional Probing
 authors:
     - Evan Hernandez
     - Jacob Andreas
-conference: CoNLL
+conference: CoNLL (Oral)
 year: 2021
 website: https://github.com/evandez/low-dimensional-probing
 paper: https://arxiv.org/abs/2105.07109
